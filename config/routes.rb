@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     resources :comments
   end
   root 'messages#index'
+
+  get '/:about' => 'pages#about'
 end

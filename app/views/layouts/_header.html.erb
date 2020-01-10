@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "AUT Devs Forum", root_path, class: "navbar-brand" %>
+        </div>
+
+        <ul class="navbar-nav nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete  %></li>
+          <% else %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+          <li><%= link_to "About", "/about" %></li>
+        </ul>
+
+        <% if user_signed_in? %>  
+          <p><%= link_to "Create a new Post", new_message_path, class: "btn btn-primary" %></p>
+        <% end %>
+      </div>
+    </nav>
